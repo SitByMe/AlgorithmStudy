@@ -14,6 +14,9 @@ public class Q1 {
     //    private static int[] values = new int[]{1, 3, 5, 6, 77, 106, 33, 36, 64, 73};
     private static int[] values = new int[valueCount];
 
+    /**
+     * 初始化数据
+     */
     public static void initData() {
         for (int i = 0; i < valueCount; ) {
             int roundNum = (int) (Math.random() * (valueMaxCount - 1) + 1);
