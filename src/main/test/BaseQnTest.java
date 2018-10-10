@@ -27,7 +27,7 @@ public abstract class BaseQnTest {
                         .replace("S", "秒"));
     }
 
-    public void resetStartInstant() {
+    void resetStartInstant() {
         startInstant = Instant.now();
         outputStartInstant();
     }
