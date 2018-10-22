@@ -1,9 +1,10 @@
 package main.questions
 
 import main.utils.SoutUtils
-import java.security.KeyStore
 import java.util.*
+import kotlin.Comparator
 import kotlin.collections.HashMap
+import kotlin.collections.LinkedHashSet
 
 /**
  * Question：
@@ -27,7 +28,13 @@ object Q3 {
             map[word] = String(chars)
         }
         //2.
-        val list: Array<MutableSet<MutableMap.MutableEntry<String, String>>> = arrayOf(map.entries)
-        SoutUtils.sout(list.contentToString())
+        val set: LinkedHashSet<MutableMap.MutableEntry<String, String>> = LinkedHashSet(map.entries)
+        val newSet = set.sortedWith(Comparator { o1: MutableMap.MutableEntry<String, String>, o2: MutableMap.MutableEntry<String, String> -> o1.value.compareTo(o2.value) })//升序排序
+        //end.
+        val builder = StringBuilder()
+        for (s in newSet) {
+            builder.append("\n").append(s.key).append(":").append(s.value)
+        }
+        SoutUtils.sout(builder.toString())
     }
 }
